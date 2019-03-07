@@ -36,8 +36,8 @@ public class User {
     @Column(name ="Role")
     private String Role;
     
-    @Column(name="image")
-    private String image;
+   // @Column(name="image")
+   // private String image;
     
     
 
@@ -98,11 +98,11 @@ public class User {
         this.Role = role;
     }
 
-    public String getImage() {
-        return image;
-    }
+   // public String getImage() {
+   //     return image;
+   // }
 
-    public void setImage(String image) {
-        this.image = image;
-    }
+    //public void setImage(String image) {
+    //    this.image = image;
+    //}
 }

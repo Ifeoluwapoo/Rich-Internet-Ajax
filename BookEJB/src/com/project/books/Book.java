@@ -9,7 +9,7 @@ import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
 
 @Entity
-@Table(name = "book", schema="bookStoreDb")
+@Table(name = "book", schema="bookStoredb")
 @XmlRootElement
 public class Book {
     
@@ -30,7 +30,7 @@ public class Book {
     private String published_date;
     
     @Column(name="isbn")
-    private double isbn;
+    private String isbn;
     
     @Column(name="price")
     private double price;
@@ -38,7 +38,8 @@ public class Book {
     @Column(name="format")
     private String format;
     
-    
+    @Column(name="image")
+    private String image;
 
     public int getId() {
         return id;
@@ -81,11 +82,11 @@ public class Book {
         this.published_date = publishedDate;
     }
     
-    public double getIsbn() {
+    public String getIsbn() {
         return isbn;
     }
 
-    public void setIsbn(double isbn) {
+    public void setIsbn(String isbn) {
         this.isbn = isbn;
     }
 
@@ -104,6 +105,14 @@ public class Book {
 
     public void setFormat(String format) {
         this.format = format;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
     }
 
 }
