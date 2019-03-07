@@ -41,6 +41,9 @@ public class Book {
     @Column(name="image")
     private String image;
 
+    @Column(name="description")
+    private String description;
+    
     public int getId() {
         return id;
     }
@@ -113,6 +116,13 @@ public class Book {
 
     public void setImage(String image) {
         this.image = image;
+    }
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
 }
