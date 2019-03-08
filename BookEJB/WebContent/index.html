@@ -84,19 +84,19 @@
     <!-- end of modal -->
 
     <!-- cards -->
-    <section>
+   <section>
       <div class="container-fluid">
         <div class="row">
-          <div class="col-xl-10 col-lg-9 col-md-8 ml-auto">
+           <div class="col-xl-10 col-lg-9 col-md-8 ml-auto">
             <div class="row pt-md-5 mt-md-3 mb-5">
-              <div class="col-xl-3 col-sm-6 p-2">
+              <div class="col-xl-6 col-sm-6 p-2">
                 <div class="card card-common">
                   <div class="card-body">
                     <div class="d-flex justify-content-between">
                       <i class="fas fa-shopping-cart fa-3x text-warning"></i>
                       <div class="text-right text-secondary">
-                        <h5>Sales</h5>
-                        <h3>€135,000</h3>
+                        <h5>Total Books</h5>
+                        <h3 id="totalBook">€135,000</h3>
                       </div>
                     </div>
                   </div>
@@ -106,7 +106,7 @@
                   </div>
                 </div>
               </div>
-              <div class="col-xl-3 col-sm-6 p-2">
+              <div class="col-xl-6 col-sm-6 p-2">
                 <div class="card card-common">
                   <div class="card-body">
                     <div class="d-flex justify-content-between">
@@ -123,7 +123,7 @@
                   </div>
                 </div>
               </div>
-              <div class="col-xl-3 col-sm-6 p-2">
+             <!-- <div class="col-xl-3 col-sm-6 p-2">
                 <div class="card card-common">
                   <div class="card-body">
                     <div class="d-flex justify-content-between">
@@ -156,10 +156,10 @@
                     <span>Updated Now</span>
                   </div>
                 </div>
-              </div>
+              </div>-->
             </div>
           </div>
-        </div>
+        </div> 
       </div>
     </section>
     <!-- end of cards -->
@@ -176,7 +176,7 @@
                 <table class="table table-hover text-center" id="myTable">
                   <thead>
                     <tr class="text-muted">
-                      <th>#</th>
+                      <th>S/N</th>
                       <th>Title</th>
                       <th>Author</th>
                      <!-- <th>Publisher</th>
@@ -184,7 +184,6 @@
                       <th>ISBN</th>table-dark-->
                       <th>Price</th>
                       <th>Format</th>
-                      <th>Details</th>
                       <th>Edit</th>
                     </tr>
                   </thead>
@@ -192,50 +191,6 @@
                   </tbody>
                 </table>
                 
-  <div class="modal" id="myDetailModal">
-  <div class="modal-dialog">
-    <div class="modal-content">
-
-      <!-- Modal Header -->
-      <div class="modal-header">
-        <h4 class="modal-title">Product Details</h4>
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-      </div>
-
-      <!-- Modal body -->
-      <div class="modal-body">
-        Modal body..
-        <div class="container">
-			<form action="/html/tags/html_form_tag_action.cfm">
-					<div class="form-group row">
-							<label for="first_name" class="col-xs-3 col-sm-3 col-md-3 col-form-label mr-2">First Name</label>
-							<div class="col-xs-9 col-sm-9 col-md-9">
-								<input type="text" class="form-control" id="first_name" name="first_name">
-							</div>
-					</div>
-					<div class="form-group row">
-							<label for="last_name" class="col-xs-3 col-form-label mr-2">Last Name</label>
-							<div class="col-xs-9">
-								<input type="text" class="form-control" id="last_name" name="last_name">
-							</div>
-					</div>
-					<div class="form-group row">
-							<div class="offset-xs-3 col-xs-9">
-								<button type="submit" class="btn btn-primary">Submit</button>
-							</div>
-					</div>
-			</form>
-		</div>
-      </div>
-
-      <!-- Modal footer -->
-      <div class="modal-footer">
-        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-      </div>
-
-    </div>
-  </div>
-</div>
 <div class="modal fade" id="myEditModal" tabindex="-1" role="dialog" aria-labelledby="modalLabelLarge" aria-hidden="true">
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
@@ -248,8 +203,12 @@
 
       <!-- Modal body -->
       <div class="modal-body">
-        <div class="container">
-			<form action="/html/tags/html_form_tag_action.cfm">
+        <div class="container" style="margin-left: 5px;">
+        
+			<form action="">
+			<div class="divNewBook">
+			<button id="btnAdd" class="btn btn-primary"> New Book</button>
+			</div>
 					<div class="row">
 					<div class="col-md-6">
 					<div class="form-group row">
@@ -288,13 +247,13 @@
 					<div class="form-group row">
 							<label for="isbn" class="col-xs-3 col-sm-3 col-md-3 col-form-label mr-2">ISBN:</label>
 							<div class="col-xs-8 col-sm-8 col-md-8">
-								<input type="number" class="form-control" id="isbn" name="isbn">
+								<input type="text" class="form-control" id="isbn" name="isbn">
 							</div>
 					</div>
 					<div class="form-group row">
 							<label for="price" class="col-xs-3 col-sm-3 col-md-3 col-form-label mr-2">Price:</label>
 							<div class="col-xs-8 col-sm-8 col-md-8">
-								<input type="number" class="form-control" id="price" name="price">
+								<input type="text" class="form-control" id="price" name="price">
 							</div>
 					</div>
 					<div class="form-group row">
@@ -312,15 +271,16 @@
 					<div class="form-group row">
 							<label for="image" class="col-xs-3 col-sm-3 col-md-3 col-form-label mr-2">Image:</label>
 							<div class="col-xs-8 col-sm-8 col-md-8">
-								<img id="pic" height="50"/>
+								<img id="pic" height="150"/>
 							</div>
 					</div>
 					
 					</div>
 					</div>
 					<div class="form-group row">
-							<div class="offset-xs-3 col-xs-9">
-								<button type="submit" class="btn btn-primary">Submit</button>
+							<div class="offset-md-5 col-xs-9">
+								<button type="submit" class="btn btn-default" id="btnDelete">Delete</button>
+								<button type="submit" class="btn btn-success" id="btnSave">Save</button>
 							</div>
 					</div>
 			</form>

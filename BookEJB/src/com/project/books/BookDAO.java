@@ -27,7 +27,7 @@ public class BookDAO {
 
     	Query query = em.createQuery("select b from Book b where format = '"+format+"'");
     	return query.getResultList();	
-        
+    	
     }
     
     //Get Book by Author DAO
@@ -42,6 +42,12 @@ public class BookDAO {
     public List<Book> getAllBooks(){
     	
     	Query query = em.createQuery("SELECT b FROM Book b");
+    	return query.getResultList();	
+    }
+    
+   public List<Book> getBookCount(){
+    	
+    	Query query = em.createQuery("SELECT Count(*) FROM Book b");
     	return query.getResultList();	
     }
     

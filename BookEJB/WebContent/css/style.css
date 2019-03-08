@@ -3,6 +3,13 @@ body {
   background-color: #eee;
 }
 
+/* myStyles */
+.divNewBook{
+	position: relative;
+	margin-bottom: 15px;
+}
+
+
 /* navbar */
 .sidebar {
   height: 100vh;

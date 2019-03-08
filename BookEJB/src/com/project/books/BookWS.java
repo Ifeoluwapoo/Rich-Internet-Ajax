@@ -48,12 +48,20 @@ public class BookWS {
         return Response.status(200).entity(books).build();
     }
     
-    //Get all book 
+    //Get all book getBookCount
     @GET
     @Produces({ MediaType.APPLICATION_JSON})
     public Response getAllBooks() {
     	System.out.println("Display All Books");
     	List<Book> books = bookDao.getAllBooks();
+        return Response.status(200).entity(books).build();
+    }
+    
+    @GET
+    @Produces({ MediaType.APPLICATION_JSON})
+    public Response getTotalBook() {
+    	System.out.println("Display All Books");
+    	List<Book> books = bookDao.getBookCount();
         return Response.status(200).entity(books).build();
     }
     
