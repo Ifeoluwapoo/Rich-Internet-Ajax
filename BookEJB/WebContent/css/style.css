@@ -87,9 +87,9 @@ body {
   border-radius: 50%;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
   .sidebar {
-    position: static;
+    position: static !important;
     height: auto;
   }
 
@@ -118,11 +118,37 @@ body {
 /* end of task list */
 
 
+@media (width: 768px) {
+body {
+  font-family: 'Montserrat', sans-serif;
+  background-color: #eee;
+  font-size: 14px;
+}
+  .sidebar {
+   /* position: static !important;*/
+    height: auto;
+  }
+
+  .top-navbar {
+    position: static;
+  }
+}
 
 
-
-
-
+@media (max-width: 375px) {
+  body {
+  font-family: 'Montserrat', sans-serif;
+  background-color: #eee;
+  font-size: 12px;
+}
+}
+@media (max-width: 415px) {
+  body {
+  font-family: 'Montserrat', sans-serif;
+  background-color: #eee;
+  font-size: 13px;
+}
+}
 
 
 

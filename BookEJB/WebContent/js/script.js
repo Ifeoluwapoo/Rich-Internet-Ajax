@@ -3,7 +3,46 @@ var rootUrl ="http://localhost:8080/BookEJB/rest/books";
 
 var currentBook;
 
+//Display Total Cost of all books
+var findCost=function(){
+    $.ajax({type:'GET',
+            url:rootUrl,
+          dataType:"json",
+           success:costList});
 
+}
+var costList=function(books){
+var bookPrice = 0;
+$.each(books, function(index, book){
+    //To DO
+	bookPrice += book.price;
+	
+	
+});
+var totalBookPrice = bookPrice.toFixed(4);
+console.log(totalBookPrice);
+document.getElementById("totalValue").innerHTML = "€" + totalBookPrice;
+//$('#totalBook').append('<h3>'+books.length+'</h3>');
+//console.log(books.length);
+}
+
+
+//Display Counted Value
+var findCount=function(){
+    $.ajax({type:'GET',
+            url:rootUrl,
+          dataType:"json",
+           success:countList});
+
+}
+var countList=function(books){
+$.each(books, function(index, book){
+    //To DO
+});
+$('#totalBook').append('<h3>'+books.length+'</h3>');
+}
+
+//Display All Object
 var findAll=function(){
     $.ajax({type:'GET',
             url:rootUrl,
@@ -11,27 +50,6 @@ var findAll=function(){
             success:renderList});
 
 }
-
-var findCount=function(){
-    $.ajax({type:'GET',
-            url:rootUrl,
-            dataType:"json",
-            success:countList});
-
-}
-var countList=function(books){
-	var count;
-	for(var i=0; i=books.length; i++)
-		{
-			//count = i;
-			console.log(i);
-		}
-	
-//$.each(wines,function(index,book){
-    //To DO
-  	//$('#wineList').append('<li> <a href = "#" id="'+wine.id+'">' +wine.name+ '</a></li>');
-  //});
-};
 
 var renderList=function(books){
     $.each(books, function( index, book){
@@ -48,7 +66,7 @@ var renderList=function(books){
             "</tr>");
     });
    
-    var table = $('#myTable').DataTable();
+    $('#myTable').DataTable();
 }
 
 
@@ -90,14 +108,10 @@ $(document).ready(function () {
 	   });
 	   
 	   findCount();
+	   
+	   findCost();
 });
 
-	//
-var myPage = (function () {
-	var table = $('#example').DataTable();
-	 var coun = table.rows.count();
-	 console.log(coun)
-})
 
 
 //Get Product by Id
