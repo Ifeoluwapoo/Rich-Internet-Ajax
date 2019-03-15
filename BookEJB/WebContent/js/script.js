@@ -56,11 +56,12 @@ var renderList=function(books){
       //To DO
     	//$('#bookList').append('<li> <a href = "#" id="'+book.id+'">' +book.title+ '</a></li>');
     	$('#bookList').append("<tr>" +
-    			"<td>" + book.id + "</td>" +
+    			"<td>" + (index+1) + "</td>" +
+    			//"<td>" + book.id + "</td>" +
                 "<td>" + book.title + "</td>" +
                 "<td>" + book.author + "</td>" +
                 "<td>" +"€" + "" + book.price + "</td>" +
-                "<td>" + book.format + "</td>" +
+               // "<td>" + book.format + "</td>" +
                 '<td> <a href = "#" id="'+book.id+'" class="edit">Edit</a></td>'+
               
             "</tr>");
@@ -86,11 +87,6 @@ $(document).ready(function () {
 		$('#myEditModal').modal("show");
 	
 	})
-
-	 //Clear Input box
-   $(document).on("click", '#btnAdd', function(){
-	   newBook();
-   });
    
 	
 	//Add New Book
@@ -112,6 +108,11 @@ $(document).ready(function () {
 	   findCost();
 });
 
+
+//Clear Input box
+$(document).on("click", '#btnAdd', function(){
+	   newBook();
+});
 
 
 //Get Product by Id
@@ -148,7 +149,7 @@ var renderDetail=function(book){
 //New Book
 var newBook = function(){
 	
-	$('#btnDelete').hide();
+	
 	//To clear the text boxes
 	
 		$('#bookId').val('');
@@ -161,6 +162,7 @@ var newBook = function(){
 		$('#format').val('');
 		$('#description').val('');
 		$('#pic').attr('src', '');
+		$('#btnDelete').hide();
 }
 
 var formToJSON = function() {
@@ -196,7 +198,10 @@ var addBook = function () {
 		success: function (data, textStatus, jqXHR){
 				alert('Book was created successfully');
 				$('#bookId').val(data.id);
-				findAll();
+				window.location.reload();
+				//findAll();
+				
+				
 		},
 		error: function(jqXHR, textStatus, errorThrow){
 			alert('addBook error: ' + textStatus);
@@ -215,7 +220,9 @@ var deleteBook = function() {
 		url: rootUrl + '/' + $('#bookId').val(),
 		success: function(data, textStatus, jqXHR){
 			alert('Book was successfully deleted');
-			
+			//$('#myEditModal').modal("hide");
+			window.location.reload();
+			 
 		},
 		error: function(jqXHR, textStatus, errorThrown){
 			alert('deleteBook error');
@@ -236,6 +243,7 @@ var updateBook = function() {
       success: function(data, textStatus, jqXHR){
           alert('Book was successfully updated');
           $('#bookId').val(data.id);
+          window.location.reload();
       },
       error: function(jqXHR, textStatus, errorThrown){
           alert('updateBook error: ' + textStatus);
