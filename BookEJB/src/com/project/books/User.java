@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 
 @Entity
-@Table(name = "user", schema="bookStoreDb")
+@Table(name = "user", schema="bookstoredb")
 @XmlRootElement
 public class User {
     
@@ -33,13 +33,13 @@ public class User {
     @Column(name="gender")
     private String gender;
     
-    @Column(name ="Role")
-    private String Role;
-    
-   // @Column(name="image")
-   // private String image;
+    @Column(name="image")
+    private String image;
     
     
+    //@Column(name ="Role")
+   // private String Role;
+      
 
     public int getId() {
         return id;
@@ -89,20 +89,21 @@ public class User {
     public void setGender(String gender) {
         this.gender = gender;
     }
+    
+  public String getImage() {
+         return image;
+     }
 
-    public String getRole() {
-        return Role;
-    }
+     public void setImage(String image) {
+        this.image = image;
+     }
 
-    public void setRole(String role) {
-        this.Role = role;
-    }
-
-   // public String getImage() {
-   //     return image;
+   // public String getRole() {
+   //     return Role;
    // }
 
-    //public void setImage(String image) {
-    //    this.image = image;
-    //}
+   // public void setRole(String role) {
+   //     this.Role = role;
+   // }
+
 }
